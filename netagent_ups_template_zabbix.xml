@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.4</version>
+    <date>2018-09-25T10:10:02Z</date>
+    <groups>
+        <group>
+            <name>UPS</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>NetAgent UPS Template</template>
+            <name>NetAgent UPS</name>
+            <description>NetAgent UPS Template&#13;
+Created by Federico Coppola</description>
+            <groups>
+                <group>
+                    <name>UPS</name>
+                </group>
+            </groups>
+            <applications/>
+            <items>
+                <item>
+                    <name>NetAgent - Battery Load</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>1.3.6.1.2.1.33.1.4.4.1.5</snmp_oid>
+                    <key>netagent.battery.load</key>
+                    <delay>30m</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Load of the batteries in percent%</description>
+                    <inventory_link>0</inventory_link>
+                    <applications/>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>NetAgent - Batteries status</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>.1.3.6.1.2.1.33.1.2.1</snmp_oid>
+                    <key>netagent.battery.status</key>
+                    <delay>30m</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Status of the batteries&#13;
+&#13;
+1-unknown&#13;
+2-batteryNormal&#13;
+3-batteryLow&#13;
+4-batteryDepleted</description>
+                    <inventory_link>0</inventory_link>
+                    <applications/>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>NetAgent - Batteries Temperature</name>
+                    <type>4</type>
+                    <snmp_community>public</snmp_community>
+                    <snmp_oid>1.3.6.1.2.1.33.1.2.7</snmp_oid>
+                    <key>netagent.battery.temperature</key>
+                    <delay>10m</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Temperature of the batteries&#13;
+Internal temperature of the UPS</description>
+                    <inventory_link>0</inventory_link>
+                    <applications/>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>NetAgent - Input voltage from socket wall</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>1.3.6.1.2.1.33.1.3.3.1.3</snmp_oid>
+                    <key>netagent.ups.input.voltage</key>
+                    <delay>1m</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Value about Voltage from socket wall.&#13;
+&#13;
+Value is normal between 200V and 250V</description>
+                    <inventory_link>0</inventory_link>
+                    <applications/>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>NetAgent - Ouput status</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>1.3.6.1.2.1.33.1.4.4.1.2</snmp_oid>
+                    <key>netagent.ups.output</key>
+                    <delay>10m</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Ouput voltate value from UPS</description>
+                    <inventory_link>0</inventory_link>
+                    <applications/>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+            </items>
+            <discovery_rules/>
+            <httptests/>
+            <macros/>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <expression>{NetAgent UPS Template:netagent.battery.load.last(10m)}&gt;80</expression>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{NetAgent UPS Template:netagent.battery.load.last(,10m)}&lt;70</recovery_expression>
+            <name>NetAgent - Battery Load is too high</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Batteries load</description>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{NetAgent UPS Template:netagent.ups.input.voltage.last(,1m)}&lt;100 and {NetAgent UPS Template:netagent.ups.output.last(,1m)}&gt;200</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>NetAgent UPS - UPS on batteries</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>UPS is using batteries becouse if there isn't power from socket wall but there is from batteries.</description>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{NetAgent UPS Template:netagent.battery.status.last(,30m)}=1 or {NetAgent UPS Template:netagent.battery.status.last(,30m)}=4</expression>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{NetAgent UPS Template:netagent.battery.status.last(,30m)}=2</recovery_expression>
+            <name>UPS NetAgent - Batteries are unable to sustain the present load or are degraded</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{NetAgent UPS Template:netagent.ups.output.last(,1m)}&lt;190</expression>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{NetAgent UPS Template:netagent.ups.output.last(,1m)}&gt;210</recovery_expression>
+            <name>UPS NetAgent - No enough output energy from UPS</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>Output from UPS</description>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{NetAgent UPS Template:netagent.battery.status.last(,15m)}=3</expression>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{NetAgent UPS Template:netagent.battery.status.last(,15m)}=2</recovery_expression>
+            <name>UPS NetAgent - Remaining battery run-time is poor</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description>Battery is low</description>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{NetAgent UPS Template:netagent.battery.temperature.last(,10m)}&gt;60</expression>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{NetAgent UPS Template:netagent.battery.temperature.last(,10m)}&lt;55</recovery_expression>
+            <name>UPS NetAgent - Temperature is too high</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Temperature are too high.&#13;
+Check fans</description>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{NetAgent UPS Template:netagent.ups.input.voltage.last(,2m)}&lt;100</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>UPS NetAgent - There is not input voltage BlackOut or BrownOut</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Brownout or Blackout input voltage UPS</description>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+    </triggers>
+</zabbix_export>
