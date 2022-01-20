@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.2</version>
+    <date>2022-01-20T17:01:05Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Synology DS216 Plus</template>
+            <name>Synology DS216 Plus</name>
+            <description>Synology DS216 Plus
+Simple Template:
+Disk
+RAID
+System status</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Check-TCP-5000</name>
+                </application>
+                <application>
+                    <name>Check-TCP-5001</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>BadSector-Disk1</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.6574.2.1.1.9.0</snmp_oid>
+                    <key>disk1badsector</key>
+                    <history>15d</history>
+                    <trends>30d</trends>
+                </item>
+                <item>
+                    <name>Disk1</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.6574.2.1.1.5.0</snmp_oid>
+                    <key>disk1status</key>
+                    <history>15d</history>
+                    <trends>30d</trends>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}=4 or
+{last()}=5</expression>
+                            <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                            <recovery_expression>{last()}=1</recovery_expression>
+                            <name>{$HOSTNAMENAS} - Disk 1 is degraded or faulty</name>
+                            <event_name>{$HOSTNAMENAS} - Disk 1 is degraded or faulty</event_name>
+                            <priority>AVERAGE</priority>
+                            <description>Disk 1 is faulty</description>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>BadSector-Disk2</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.6574.2.1.1.9.1</snmp_oid>
+                    <key>disk2badsector</key>
+                    <history>15d</history>
+                    <trends>30d</trends>
+                </item>
+                <item>
+                    <name>Disk2</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.6574.2.1.1.5.1</snmp_oid>
+                    <key>disk2status</key>
+                    <history>15d</history>
+                    <trends>30d</trends>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}=4 or
+{last()}=5</expression>
+                            <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                            <recovery_expression>{last()}=1</recovery_expression>
+                            <name>{$HOSTNAMENAS} - Disk 2 is degraded or faulty</name>
+                            <event_name>{$HOSTNAMENAS} - Disk 2 is degraded or faulty</event_name>
+                            <priority>AVERAGE</priority>
+                            <description>Disk 2 is faulty</description>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>Check-TCP-HTTP-5000</name>
+                    <type>SIMPLE</type>
+                    <key>net.tcp.service[tcp,,5000]</key>
+                    <delay>10m</delay>
+                    <history>15d</history>
+                    <trends>30d</trends>
+                    <description>Check HTTP connection default TCP port</description>
+                    <applications>
+                        <application>
+                            <name>Check-TCP-5000</name>
+                        </application>
+                    </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}=0</expression>
+                            <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                            <recovery_expression>{last()}=1</recovery_expression>
+                            <name>{$HOSTNAMENAS} - Web server is down</name>
+                            <event_name>{$HOSTNAMENAS} - Web server is down</event_name>
+                            <priority>HIGH</priority>
+                            <description>HTTP management web server check</description>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>Check-TCP-HTTPS-5001</name>
+                    <type>SIMPLE</type>
+                    <key>net.tcp.service[tcp,,5001]</key>
+                    <delay>10m</delay>
+                    <history>15d</history>
+                    <trends>30d</trends>
+                    <description>Check HTTPS connection default TCP port</description>
+                    <applications>
+                        <application>
+                            <name>Check-TCP-5001</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Raid1-Status</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.6574.3.1.1.3.0</snmp_oid>
+                    <key>raid1status</key>
+                    <history>15d</history>
+                    <trends>30d</trends>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}=12</expression>
+                            <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                            <recovery_expression>{last()}=1</recovery_expression>
+                            <name>{$HOSTNAMENAS} - Raid is crashed</name>
+                            <event_name>{$HOSTNAMENAS} - Raid is crashed</event_name>
+                            <priority>DISASTER</priority>
+                            <description>Raid is read-only.
+Check your NAS soon as possible.</description>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                        <trigger>
+                            <expression>{last()}=11</expression>
+                            <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                            <recovery_expression>{last()}=1</recovery_expression>
+                            <name>{$HOSTNAMENAS} - Raid status degraded</name>
+                            <event_name>{$HOSTNAMENAS} - Raid statu degraded</event_name>
+                            <priority>AVERAGE</priority>
+                            <description>Raid status
+Value 1 is normal
+Value 11 is degraded (a disk may be failed)</description>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>systemstatus</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.6574.1.1.0</snmp_oid>
+                    <key>systemstatus</key>
+                    <delay>5m</delay>
+                    <history>15d</history>
+                    <trends>30d</trends>
+                </item>
+                <item>
+                    <name>SystemTemperature</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.6574.1.2.0</snmp_oid>
+                    <key>systemtemperature</key>
+                    <delay>10m</delay>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}&gt;50</expression>
+                            <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                            <recovery_expression>{last()}&lt;=50</recovery_expression>
+                            <name>{$HOSTNAMENAS} - System temperature too high</name>
+                            <event_name>{$HOSTNAMENAS} - System temperature too high</event_name>
+                            <priority>HIGH</priority>
+                            <description>System temperature trigger</description>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+            <macros>
+                <macro>
+                    <macro>{$HOSTNAMENAS}</macro>
+                    <value>SYNOLOGY-NAS</value>
+                </macro>
+                <macro>
+                    <macro>{$SNMP_COMMUNITY}</macro>
+                    <value>public</value>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <expression>{Synology DS216 Plus:disk1badsector.last()}&gt;0 or
+{Synology DS216 Plus:disk2badsector.last()}&gt;0</expression>
+            <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+            <recovery_expression>{Synology DS216 Plus:disk1badsector.last()}=0 and
+{Synology DS216 Plus:disk2badsector.last()}=0</recovery_expression>
+            <name>{$HOSTNAMENAS} - Bad sectors detected</name>
+            <event_name>{$HOSTNAMENAS} - Bad sectors detected</event_name>
+            <priority>WARNING</priority>
+            <description>Bad sectors hard drive check</description>
+            <manual_close>YES</manual_close>
+        </trigger>
+    </triggers>
+    <graphs>
+        <graph>
+            <name>{HOSTNAMENAS} - General system status</name>
+            <graph_items>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>0040FF</color>
+                    <item>
+                        <host>Synology DS216 Plus</host>
+                        <key>systemstatus</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>{HOSTNAMENAS} - System temperature</name>
+            <graph_items>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Synology DS216 Plus</host>
+                        <key>systemtemperature</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
